@@ -2,15 +2,15 @@
 
 ## Poinar Lab updated sequencing pipeline
 ## Ana Duggan's parting gift 
-## Last modifed May2020
+## Last modifed Aug252021
 
 #use strict;
 use warnings;
 use Data::Dumper;
 if (scalar(@ARGV) < 2) {
 	  print "\n";
-		print "Version : v0.1.1\n";
-		print "Date    : 2021-02-22\n";
+		print "Version : v0.1.2\n";
+		print "Date    : 2021-08-25\n";
     print "Usage   : legacy.pl input_fastq_directory reference_genome(s)\n";
 		print "Notes   : Redirect output to file called 'Makefile' and launch with command 'make'\n";
 		print "          Reference genomes must be indexed using network aware bwa found at /home/ana/scripts/network-aware-bwa/bwa\n";
