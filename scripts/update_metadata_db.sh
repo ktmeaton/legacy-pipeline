@@ -1,8 +1,11 @@
 #!/bin/bash
 
-bs list projects \
+bs list datasets \
   -F Name \
+  -F Project.Name \
   -F Id \
-  -F Project.TotalSize \
+  -F Project.Id \
+  -F TotalSize \
+  -F DataSetType.Id \
   -F DateCreated \
   -F DateModified

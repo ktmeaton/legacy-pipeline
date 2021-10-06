@@ -1,11 +1,11 @@
 #!/bin/bash
 
-INDIR=$1
-OUTDIR=$2
-ID_SEP=$3
-ID_SEP="${ID_SEP:=_}"
+OUTDIR=$1
+INDIRS=${@:2}
 
-for old_sample_dir in `ls -d $INDIR/*`; do
+ID_SEP="_"
+
+for old_sample_dir in ${INDIRS[@]}; do
 
   # Check if directory
   if [[ ! -d $old_sample_dir ]]; then continue; fi;
@@ -21,10 +21,11 @@ for old_sample_dir in `ls -d $INDIR/*`; do
   for file in `ls $old_sample_dir/*.fastq.gz`; do
     filename=`basename $file`;
     target="${new_sample_dir}/${filename}";
-    echo -e "\t$target";
-    ln -s $file $target;
-  done;
 
-  break
+    if [[ ! -L $target ]]; then
+      echo -e "\t$target";
+      ln -s $file $target;
+    fi;
+  done;
 
 done
