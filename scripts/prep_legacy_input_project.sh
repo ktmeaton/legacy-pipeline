@@ -1,9 +1,28 @@
 #!/bin/bash
 
+args=( "$@" );
 OUTDIR=$1
 INDIR=$2
-
 ID_SEP="_"
+
+# Check number of args
+if [[ ${#args[@]} < 2 ]]; then
+    echo ""
+    echo -e "Description : Prepare a legacy project from a BaseSpace PROJECT."
+    echo -e "Version     : v0.1.0";
+    echo -e "Date        : 2021-10-07";
+    echo -e "Usage       : prep_legacy_input_project.sh output_project input_project";
+    echo ""
+    exit;
+fi
+
+# Check if INDIR exists
+if [[ ! -e $INDIR ]]; then
+  echo "The input project directory '$INDIR' does not exist.";
+  exit 1;
+fi;
+
+
 
 for old_sample_dir in `ls -d $INDIR/*`; do
 

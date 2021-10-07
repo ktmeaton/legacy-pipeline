@@ -1,9 +1,20 @@
 #!/bin/bash
 
+args=("$@")
 OUTDIR=$1
 INDIRS=${@:2}
-
 ID_SEP="_"
+
+# Check number of args
+if [[ ${#args[@]} < 2 ]]; then
+    echo ""
+    echo -e "Description : Prepare a legacy project from BaseSpace SAMPLE directories."
+    echo -e "Version     : v0.1.0";
+    echo -e "Date        : 2021-10-07";
+    echo -e "Usage       : prep_legacy_input_project.sh output_project sample_dir_1 (sample_dir_2 ...)";
+    echo ""
+    exit;
+fi
 
 for old_sample_dir in ${INDIRS[@]}; do
 

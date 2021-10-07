@@ -1,6 +1,8 @@
 #!/bin/bash
 
-bs list datasets \
+CONFIG=$1
+
+bs list datasets -c $CONFIG \
   -F Name \
   -F Project.Name \
   -F Id \
